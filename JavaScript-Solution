@@ -1,0 +1,39 @@
+// https://leetcode.com/submissions/detail/902511342/
+
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+
+let isPalindrome = function(x) {
+
+    let numString = x.toString();
+    let halfIndex;
+
+    if (x < 0) {
+        return false;
+    } else if (numString.length == 1) {
+        return true;
+    }
+
+    halfIndex = Math.floor(numString.length / 2);
+  
+    //console.log(numString + " halfIndex of " + halfIndex);
+
+  let i = 0
+  let j = numString.length-1;
+  let numOne = numString[i];
+  let numTwo = numString[j];
+
+  while (i < halfIndex) {
+    if (numOne !== numTwo) {
+      return false;
+    } else {
+      i++;
+      j--;
+    numOne = numString[i];
+    numTwo = numString[j];
+    }
+  }
+  return true;
+}
